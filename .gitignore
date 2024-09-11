@@ -348,4 +348,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Self created ignores
 Euphorically/GTA Folder Path.txt
+.idea/

@@ -2,6 +2,7 @@
 
 namespace Euphorically.Config
 {
+    //TODO: Rewrite Config System
     public class DebugConfig
     {
         private const string ConfigName = "DebugConfig";

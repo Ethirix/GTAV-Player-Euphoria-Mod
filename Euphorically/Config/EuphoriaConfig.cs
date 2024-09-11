@@ -2,6 +2,7 @@
 
 namespace Euphorically.Config
 {
+    //TODO: Rewrite Config System
     public class EuphoriaConfig
     {
         internal readonly ShotConfig ShotConfig;

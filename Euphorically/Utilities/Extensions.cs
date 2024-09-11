@@ -3,7 +3,6 @@ using Euphorically.Config;
 using GTA;
 using GTA.Math;
 using GTA.Native;
-using GTA.UI;
 
 namespace Euphorically.Utilities
 {
@@ -11,6 +10,7 @@ namespace Euphorically.Utilities
     {
         internal static bool CanPlayerEuphoria(this Player player, EuphoriaConfig euphoriaConfig)
         {
+            //TODO: Determine if Euphoria trigger is correct
             Random rnd = new Random();
 
             if (player.Character.IsInVehicle() && !Function.Call<bool>(Hash.CAN_KNOCK_PED_OFF_VEHICLE, player))
@@ -35,6 +35,7 @@ namespace Euphorically.Utilities
                 case Bone.SkelRoot:
                     return EuphoriaBones.Root;
 
+                #region LeftLeg
                 case Bone.SkelLeftThigh:
                     return EuphoriaBones.LeftThigh;
                 case Bone.SkelLeftCalf:
@@ -43,7 +44,9 @@ namespace Euphorically.Utilities
                 case Bone.SkelLeftToe0:
                 case Bone.SkelLeftToe1:
                     return EuphoriaBones.LeftFoot;
-
+                #endregion
+                
+                #region RightLeg
                 case Bone.SkelRightThigh:
                     return EuphoriaBones.RightThigh;
                 case Bone.SkelRightCalf:
@@ -52,7 +55,9 @@ namespace Euphorically.Utilities
                 case Bone.SkelRightToe0:
                 case Bone.SkelRightToe1:
                     return EuphoriaBones.RightFoot;
+                #endregion
 
+                #region Torso
                 case Bone.SkelPelvis:
                 case Bone.SkelPelvis1:
                 case Bone.SkelPelvisRoot:
@@ -65,13 +70,17 @@ namespace Euphorically.Utilities
                     return EuphoriaBones.Stomach;
                 case Bone.SkelSpine3:
                     return EuphoriaBones.Chest;
+                #endregion
 
+                #region LeftArm
                 case Bone.SkelLeftClavicle:
                     return EuphoriaBones.LeftShoulder;
                 case Bone.SkelLeftUpperArm:
                     return EuphoriaBones.LeftUpperArm;
                 case Bone.SkelLeftForearm:
                     return EuphoriaBones.LeftForeArm;
+                #endregion
+                
                 #region LeftHand
                 case Bone.SkelLeftHand:
                 case Bone.SkelLeftFinger00:
@@ -92,12 +101,15 @@ namespace Euphorically.Utilities
                     return EuphoriaBones.LeftHand;
                 #endregion
 
+                #region RightArm
                 case Bone.SkelRightClavicle:
                     return EuphoriaBones.RightShoulder;
                 case Bone.SkelRightUpperArm:
                     return EuphoriaBones.RightUpperArm;
                 case Bone.SkelRightForearm:
                     return EuphoriaBones.RightForeArm;
+                #endregion
+                
                 #region RightHand
                 case Bone.SkelRightHand:
                 case Bone.SkelRightFinger00:
@@ -118,13 +130,15 @@ namespace Euphorically.Utilities
                     return EuphoriaBones.RightHand;
                 #endregion
 
+                #region Head
                 case Bone.SkelNeck1:
                     return EuphoriaBones.Neck;
                 case Bone.SkelNeck2:
                     return EuphoriaBones.Mouth;
                 case Bone.SkelHead:
                     return EuphoriaBones.Eyes;
-
+                #endregion
+                
                 default:
                     return null;
             }
