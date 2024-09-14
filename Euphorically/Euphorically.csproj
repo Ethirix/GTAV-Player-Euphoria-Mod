@@ -45,8 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\Configuration.cs" />
     <Compile Include="Config\DebugConfig.cs" />
     <Compile Include="Config\EuphoriaConfig.cs" />
+    <Compile Include="Config\IConfig.cs" />
+    <Compile Include="Config\Types\DebugConfiguration.cs" />
+    <Compile Include="Config\Types\ForceConfiguration.cs" />
+    <Compile Include="Debugging\Logger.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="OldMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,7 +65,6 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>IF EXIST "$(SolutionDir)GTA Folder Path.txt" (&lt;"$(SolutionDir)GTA Folder Path.txt" set /p folder=)
