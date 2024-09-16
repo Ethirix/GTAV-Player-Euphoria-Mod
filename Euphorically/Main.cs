@@ -1,10 +1,11 @@
 ﻿using System;
 using Euphorically.Config;
 using GTA;
+using GTA.UI;
 
 namespace Euphorically
 {
-    public class Main : Script
+    internal class Main : Script
     {
         /// <summary>
         /// Determines if the <c>Player</c> is currently in an Euphoria-driven Ragdoll
@@ -15,14 +16,12 @@ namespace Euphorically
         /// </remarks>
         public bool IsEuphoriaRagdoll { get; private set; } = false;
 
-        private readonly EuphoriaConfig _euphoriaConfig;
-        private readonly DebugConfig _debugConfig;
+        private readonly Configuration _config;
         private readonly Random _rnd = new Random();
 
         public Main()
         {
-            _euphoriaConfig = new EuphoriaConfig(Settings);
-            _debugConfig = new DebugConfig(Settings);
+            _config = new Configuration(Settings, Filename);
         }
         
         //TODO: Rewrite
