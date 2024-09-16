@@ -1,7 +1,7 @@
 ﻿using System;
 using Euphorically.Config;
+using Euphorically.Debugging;
 using GTA;
-using GTA.UI;
 
 namespace Euphorically
 {
@@ -22,6 +22,9 @@ namespace Euphorically
         public Main()
         {
             _config = new Configuration(Settings, Filename);
+            
+            //Configuration may need to be converted to static or a singleton.
+            Logger.LogToFile(_config, "Initialization", "Euphorically Started");
         }
         
         //TODO: Rewrite

@@ -12,10 +12,12 @@ namespace Euphorically.Config.Types
 
         public void Load(ScriptSettings settings)
         {
+            PrintEventsToFile = settings.GetValue(nameof(DebugConfiguration), nameof(PrintEventsToFile), false);
             ShowDebugNotifications = settings.GetValue(nameof(DebugConfiguration), nameof(ShowDebugNotifications), false);
             PedSearchRadius = settings.GetValue(nameof(DebugConfiguration), nameof(PedSearchRadius), 10.0f);
         }
         
+        public bool PrintEventsToFile { get; set; }
         public bool ShowDebugNotifications { get; set; }
         public float PedSearchRadius { get; set; }
     }
