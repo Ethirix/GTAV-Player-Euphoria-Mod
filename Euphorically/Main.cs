@@ -1,7 +1,6 @@
 ﻿using System;
 using Euphorically.Config;
 using GTA;
-using GTA.UI;
 
 namespace Euphorically
 {

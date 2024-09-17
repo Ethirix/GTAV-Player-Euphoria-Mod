@@ -46,11 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\Configuration.cs" />
-    <Compile Include="Config\DebugConfig.cs" />
-    <Compile Include="Config\EuphoriaConfig.cs" />
     <Compile Include="Config\IConfig.cs" />
+    <Compile Include="Config\Types\BaseEuphoriaConfiguration.cs" />
     <Compile Include="Config\Types\DebugConfiguration.cs" />
     <Compile Include="Config\Types\ForceConfiguration.cs" />
+    <Compile Include="Config\Types\PointGunConfiguration.cs" />
+    <Compile Include="Config\Types\ShotConfiguration.cs" />
+    <Compile Include="Config\Types\ShotHeadLookConfiguration.cs" />
     <Compile Include="Debugging\Logger.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="OldMain.cs" />
