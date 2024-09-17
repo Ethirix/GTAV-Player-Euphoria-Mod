@@ -59,6 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\EuphoriaBones.cs" />
     <Compile Include="Utilities\Extensions.cs" />
+    <Compile Include="Utilities\GameNotification.cs" />
     <Compile Include="Utilities\Timer.cs" />
   </ItemGroup>
   <ItemGroup>
