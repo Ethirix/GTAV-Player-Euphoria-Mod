@@ -74,12 +74,6 @@ namespace Euphorically.Config
         public readonly int MinimumEuphoriaActiveTime;
         public readonly int MaximumEuphoriaActiveTime;
     }
-
-    internal interface IConfig
-    {
-        string ConfigName { get; }
-    }
-
     internal class ShotConfig : IConfig
     {
         public string ConfigName => "ShotConfig";

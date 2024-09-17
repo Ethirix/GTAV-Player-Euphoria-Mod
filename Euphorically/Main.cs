@@ -1,10 +1,11 @@
 ﻿using System;
 using Euphorically.Config;
+using Euphorically.Debugging;
 using GTA;
 
 namespace Euphorically
 {
-    public class Main : Script
+    internal class Main : Script
     {
         /// <summary>
         /// Determines if the <c>Player</c> is currently in an Euphoria-driven Ragdoll
@@ -15,14 +16,15 @@ namespace Euphorically
         /// </remarks>
         public bool IsEuphoriaRagdoll { get; private set; } = false;
 
-        private readonly EuphoriaConfig _euphoriaConfig;
-        private readonly DebugConfig _debugConfig;
+        private readonly Configuration _config;
         private readonly Random _rnd = new Random();
 
         public Main()
         {
-            _euphoriaConfig = new EuphoriaConfig(Settings);
-            _debugConfig = new DebugConfig(Settings);
+            _config = new Configuration(Settings, Filename);
+            
+            //Configuration may need to be converted to static or a singleton.
+            Logger.LogToFile(_config, "Initialization", "Euphorically Started");
         }
         
         //TODO: Rewrite

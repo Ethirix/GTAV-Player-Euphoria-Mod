@@ -4,7 +4,7 @@ Another Ragdoll Mod in which replicates for the Player how other Peds react when
 ## Requirements
 - GTA V
   - [C++ Script Hook V](http://www.dev-c.com/gtav/scripthookv/)
-  - [Script Hook V .NET](https://github.com/crosire/scripthookvdotnet)
+  - [Script Hook V .NET](https://github.com/scripthookvdotnet/scripthookvdotnet-nightly/releases)
   - [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48)
   - [Visual C++ Redistribution x64](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)
 - Scripting

@@ -31,9 +31,9 @@ namespace Euphorically
             _debugConfig = new DebugConfig(Settings);
             _euphoriaCooldownTimer = new Timer(0);
 
-            Function.Call(Hash.CLEAR_ENTITY_LAST_WEAPON_DAMAGE, Game.Player.Character);
-            Tick += OnTick;
-            KeyDown += OnKeyDown;
+            //Function.Call(Hash.CLEAR_ENTITY_LAST_WEAPON_DAMAGE, Game.Player.Character);
+            //Tick += OnTick;
+            //KeyDown += OnKeyDown;
         }
 
 #if DEBUG
