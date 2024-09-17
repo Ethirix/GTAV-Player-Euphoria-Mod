@@ -2,7 +2,7 @@
 
 namespace Euphorically.Config.Types
 {
-    public class ForceConfiguration : IConfig
+    internal class ForceConfiguration : IConfig
     {
         public void Save(ScriptSettings settings)
         {
