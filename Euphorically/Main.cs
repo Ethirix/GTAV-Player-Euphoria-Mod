@@ -16,15 +16,14 @@ namespace Euphorically
         /// </remarks>
         public bool IsEuphoriaRagdoll { get; private set; } = false;
 
-        private readonly Configuration _config;
         private readonly Random _rnd = new Random();
 
         public Main()
         {
-            _config = new Configuration(Settings, Filename);
+            Configuration.Initialize(Settings, Filename);
             
             //Configuration may need to be converted to static or a singleton.
-            Logger.LogToFile(_config, "Initialization", "Euphorically Started");
+            Logger.LogToFile("Initialization", "Euphorically Started");
         }
         
         //TODO: Rewrite

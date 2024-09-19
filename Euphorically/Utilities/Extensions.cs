@@ -8,10 +8,12 @@ namespace Euphorically.Utilities
 {
     internal static class Extensions
     {
-        internal static bool CanPlayerEuphoria(this Player player, Configuration config)
+        internal static bool CanPlayerEuphoria(this Player player)
         {
             //TODO: Determine if Euphoria trigger is correct
             Random rnd = new Random();
+            
+            Configuration config = Configuration.Instance;
 
             if (player.Character.IsInVehicle() && !Function.Call<bool>(Hash.CAN_KNOCK_PED_OFF_VEHICLE, player))
                 return false;

@@ -5,6 +5,13 @@ namespace Euphorically.Config
 {
     internal class Configuration
     {
+        public static Configuration Instance { get; private set; }
+
+        public static void Initialize(ScriptSettings settings, string fileName)
+        {
+            Instance = new Configuration(settings, fileName);
+        }
+        
         private ScriptSettings _settings;
         private readonly string _fileName;
         
@@ -15,7 +22,7 @@ namespace Euphorically.Config
         public ForceConfiguration ForceConfig { get; }
         public DebugConfiguration DebugConfig { get; }
 
-        public Configuration(ScriptSettings settings, string fileName)
+        private Configuration(ScriptSettings settings, string fileName)
         {
             _settings = settings;
             _fileName = fileName;
