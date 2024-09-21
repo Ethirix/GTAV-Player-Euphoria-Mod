@@ -21,8 +21,7 @@ namespace Euphorically
         public Main()
         {
             Configuration.Initialize(Settings, Filename);
-            
-            //Configuration may need to be converted to static or a singleton.
+
             Logger.LogToFile("Initialization", "Euphorically Started");
         }
         

@@ -1,4 +1,5 @@
-﻿using Euphorically.Config.Types;
+﻿using System.IO;
+using Euphorically.Config.Types;
 using GTA;
 
 namespace Euphorically.Config
@@ -10,6 +11,7 @@ namespace Euphorically.Config
         public static void Initialize(ScriptSettings settings, string fileName)
         {
             Instance = new Configuration(settings, fileName);
+            Instance.Load();
         }
         
         private ScriptSettings _settings;
@@ -25,7 +27,7 @@ namespace Euphorically.Config
         private Configuration(ScriptSettings settings, string fileName)
         {
             _settings = settings;
-            _fileName = fileName;
+            _fileName = Path.ChangeExtension(fileName, ".ini");
 
             BaseEuphoriaConfig = new BaseEuphoriaConfiguration();
             ShotConfig = new ShotConfiguration();
