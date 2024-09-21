@@ -8,22 +8,24 @@ namespace Euphorically.Utilities
 {
     internal static class Extensions
     {
-        internal static bool CanPlayerEuphoria(this Player player, EuphoriaConfig euphoriaConfig)
+        internal static bool CanPlayerEuphoria(this Player player)
         {
             //TODO: Determine if Euphoria trigger is correct
             Random rnd = new Random();
+            
+            Configuration config = Configuration.Instance;
 
             if (player.Character.IsInVehicle() && !Function.Call<bool>(Hash.CAN_KNOCK_PED_OFF_VEHICLE, player))
                 return false;
             if (!player.Character.HasBeenDamagedByAnyWeapon() && !player.Character.HasBeenDamagedByAnyMeleeWeapon())
                 return false;
-            if (euphoriaConfig.BlockEuphoriaWithArmor && player.Character.Armor > 0)
+            if (config.BaseEuphoriaConfig.BlockEuphoriaWithArmour && player.Character.Armor > 0)
                 return false;
-            if (!euphoriaConfig.UseRandomEuphoriaChance && rnd.NextDouble() * 100d > euphoriaConfig.BaseEuphoriaChance)
+            if (!config.BaseEuphoriaConfig.UseRandomEuphoriaChance && rnd.NextDouble() * 100d > config.BaseEuphoriaConfig.BaseEuphoriaChance)
                 return false;
 
-            float deltaChance = euphoriaConfig.MaximumEuphoriaChance - euphoriaConfig.MinimumEuphoriaChance;
-            double value = euphoriaConfig.MinimumEuphoriaChance + deltaChance * rnd.NextDouble();
+            float deltaChance = config.BaseEuphoriaConfig.MaximumEuphoriaChance - config.BaseEuphoriaConfig.MinimumEuphoriaChance;
+            double value = config.BaseEuphoriaConfig.MinimumEuphoriaChance + deltaChance * rnd.NextDouble();
             
             return rnd.NextDouble() * 100d < value;
         }
@@ -151,6 +153,25 @@ namespace Euphorically.Utilities
             v.Z = Math.Abs(v.Z);
 
             return v;
+        }
+
+        /// <summary>
+        /// A clamp function as this version of .NET does not include a Math.Clamp() function.
+        /// </summary>
+        /// <param name="v">A value to be clamped.</param>
+        /// <param name="min">The minimum value.</param>
+        /// <param name="max">The maximum value.</param>
+        /// <typeparam name="T">IComparable types</typeparam>
+        /// <returns>A value clamped between the min and max, inclusive.</returns>
+        /// <remarks>
+        /// <see href="https://stackoverflow.com/questions/2683442/where-can-i-find-the-clamp-function-in-net">Implementation Source</see> -
+        /// would have implemented something similar but found this whilst searching for Math.Clamp() .NET versions (not 4.8 apparently!).
+        /// </remarks>
+        internal static T Clamp<T>(this T v, T min, T max) where T : IComparable<T>
+        {
+            if (v.CompareTo(min) < 0) return min;
+            else if (v.CompareTo(max) > 0) return max;
+            else return v;
         }
     }
 }
