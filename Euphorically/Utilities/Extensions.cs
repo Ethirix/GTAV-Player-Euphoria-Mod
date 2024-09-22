@@ -30,6 +30,11 @@ namespace Euphorically.Utilities
             return rnd.NextDouble() * 100d < value;
         }
 
+        internal static void ClearLastDamageEntity(this Entity entity)
+        {
+            Function.Call(Hash.CLEAR_ENTITY_LAST_DAMAGE_ENTITY, entity);
+        }
+
         internal static EuphoriaBones? ConvertToEuphoriaBone(this Bone bone)
         {
             switch (bone)

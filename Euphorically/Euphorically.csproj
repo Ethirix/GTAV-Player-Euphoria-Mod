@@ -55,8 +55,11 @@
     <Compile Include="Config\Types\ShotHeadLookConfiguration.cs" />
     <Compile Include="Debugging\Logger.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="Managers\GameEventManager.cs" />
+    <Compile Include="Managers\ScriptEventManager.cs" />
     <Compile Include="OldMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\DamageType.cs" />
     <Compile Include="Utilities\EuphoriaBones.cs" />
     <Compile Include="Utilities\Extensions.cs" />
     <Compile Include="Utilities\GameNotification.cs" />
